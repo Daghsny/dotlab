@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Réservation - CUBE</title>
+    <link href="mesStyles.css" rel="stylesheet" type="text/css" />
+    <script src="mesControles.js"></script>
+  </head>
+
+  <!-- initReservation() désactive au chargement tous les champs des fieldsets
+     "Créneau demandé" et "Espace ou ressource" (voir question 2) -->
+  <body onload="initReservation()">
+    <h2>Réservation d'un espace ou d'une ressource</h2>
+
+    <!-- ligne 1 : onsubmit appelle la fonction booléenne verifierReservation() -->
+    <section>
+      <form
+        id="frm"
+        name="frm"
+        action="reservation.php"
+        method="post"
+        onsubmit="return verifierReservation();"
+      >
+        <fieldset class="cadre">
+          <legend>Identification</legend>
+
+          <label>Startup</label>
+          <!-- ligne 5 : required -->
+          <input type="text" name="nomStartup" id="nomStartup" required /><br />
+
+          <label>Type de demande</label>
+          <input
+            type="radio"
+            name="typeDemande"
+            id="rdEspace"
+            value="E"
+            onclick="activer('E')"
+          />
+          Espace
+          <input
+            type="radio"
+            name="typeDemande"
+            id="rdRessource"
+            value="R"
+            onclick="activer('R')"
+          />
+          Ressource <br />
+        </fieldset>
+
+        <fieldset class="cadre">
+          <legend>Créneau demandé</legend>
+
+          <label>Date</label>
+          <!-- ligne 13 : required -->
+          <input type="date" name="dateResa" id="dateResa" required /><br />
+
+          <label>Heure début</label>
+          <input type="time" name="heureDebut" id="heureDebut" /><br />
+
+          <label>Heure fin</label>
+          <input type="time" name="heureFin" id="heureFin" /><br />
+        </fieldset>
+
+        <fieldset class="cadre">
+          <legend>Espace ou ressource</legend>
+
+          <label>Espace</label>
+          <!-- ligne 22 : onchange appelle afficherCapacite() -->
+          <select
+            name="listEspace"
+            id="listEspace"
+            onchange="afficherCapacite()"
+          >
+            <option value="">Sélectionner un espace</option>
+            <option value="E01">Bureau A (4 places)</option>
+            <option value="E02">Salle de réunion (10 places)</option>
+            <option value="E03">Studio audio (6 places)</option></select
+          ><br />
+
+          <!-- affichage dynamique de la capacité (question 3) -->
+          <p id="capaciteAffichee"></p>
+
+          <label>Nombre de personnes</label>
+          <input type="number" name="nbPersonnes" id="nbPersonnes" /><br />
+
+          <label>Ressource</label>
+          <select name="listRessource" id="listRessource">
+            <option value="">Sélectionner une ressource</option>
+            <option value="R01">Casque VR</option>
+            <option value="R02">Imprimante 3D</option>
+            <option value="R03">Caméra</option></select
+          ><br />
+        </fieldset>
+
+        <p id="erreur"></p>
+
+        <input type="reset" class="bouton" value="Annuler" />
+        <input type="submit" class="bouton" value="Enregistrer" />
+      </form>
+    </section>
+    <aside>
+        <img src="assets/planLab.jpg" />
+    </aside>
+  </body>
+</html>

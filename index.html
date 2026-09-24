@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Séance 1 - question 1 : ligne 4 -->
+  <meta charset="utf-8" />
+  <title>dotLab</title>
+
+  <!-- Séance 1 - question 1 : ligne 6 -->
+  <link href="mesStyles.css" rel="stylesheet" type="text/css" />
+  <script src="mesControles.js"></script>
+</head>
+
+<body>
+  <header>
+    <!-- ligne 22 : alt="Logo CUBE" -->
+
+    <div class="container">
+      <!-- ligne 13-15 : les 3 liens sur la même ligne, target="zone" pointe vers l'iframe de la <section> -->
+      <nav>
+        <img id="logo-nav" src="assets/dotlab.jpg" alt="Logo CUBE" />
+        <div id="title-nav">
+          dotLab <span id="slogon-title">l'espace des jeunes créateurs</span>
+        </div>
+
+        <ul>
+          <li><a href="Accueil.html" target="zone">Accueil</a></li>
+          <li>
+            <a href="inscription.html" target="zone">Rejoindre dotLab</a>
+          </li>
+          <li>
+            <a href="reservation.html" target="zone">Réserver un espace</a>
+          </li>
+          <li><a href="startups.php" target="zone">Nos startups</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="divOne"> <iframe name="zone" id="zone" src="accueil.html"></iframe></div>
+  <footer>
+    
+      <p id="pFooter">Adresse : Technopôle El Argoub, Lab02 | Email : contact@dotlab.tn</p>
+    
+  </footer>
+</body>
+
+</html>

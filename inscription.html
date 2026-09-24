@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Inscription - CUBE</title>
+    <link href="mesStyles.css" rel="stylesheet" type="text/css">
+    <script src="mesControles.js"></script>
+</head>
+<body>
+
+    <h2>Rejoindre CUBE</h2>
+
+    <form action="inscription.php" method="post" onsubmit="return verifierInscription()">
+        <fieldset class="cadre">
+            <legend>Nouvelle startup</legend>
+
+            <label>Identifiant</label>
+            <!-- ligne 5 : placeholder décrit le format attendu (2 lettres + 3 chiffres) -->
+            <input type="text" name="idStartup" id="idStartup"
+                onblur="convMaj('idStartup')" placeholder="2 lettres suivies de 3 chiffres (ex : AB123)"><br>
+
+            <label>Nom de la startup</label>
+            <input type="text" name="nomStartup" id="nomStartup" required><br>
+
+            <label>Domaine</label>
+            <!-- ligne 9 : list="domaines" relie le champ à la <datalist> ;
+                 onmouseover / onmouseout affichent/cachent l'aide contextuelle (question 5) -->
+            <input type="text" name="domaine" id="domaine" list="domaines"
+                onmouseover="afficherAide()" onmouseout="cacherAide()">
+            <datalist id="domaines">
+                <option value="Web"></option>
+                <option value="Mobile"></option>
+                <option value="Intelligence artificielle"></option>
+                <option value="Cybersécurité"></option>
+                <option value="Jeux vidéo"></option>
+            </datalist>
+            <p id="aideDomaine"></p>
+            <br>
+
+            <label>Email</label>
+            <!-- ligne 18 : required -->
+            <input type="email" name="email" id="email" required><br>
+
+            <label>Téléphone</label>
+            <input type="tel" name="telephone" id="telephone"><br>
+
+            <label>Date de création</label>
+            <input type="date" name="dateCreation" id="dateCreation"><br>
+
+            <label>Description du projet</label><br>
+            <textarea name="description" id="description" rows="4" cols="40"
+                maxlength="150"
+                onkeyup="compterCaracteres()"></textarea>
+            <p>Caractères restants : <span id="compteur">150</span></p>
+        </fieldset>
+
+        <p id="erreurInscription"></p>
+
+        <input type="reset" class="bouton" value="Annuler">
+        <input type="submit" class="bouton" value="Enregistrer">
+
+    </form>
+
+</body>
+</html>
